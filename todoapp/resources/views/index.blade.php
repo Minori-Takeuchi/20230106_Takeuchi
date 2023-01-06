@@ -12,11 +12,10 @@
     <div class="card">
       <p class="ttl">Todo List</p>
       <div class="todo">
-        @if (count($errors) > 0)
-          <ul>
-            <li>タスクを入力してください。</li>
-          </ul>
-        @endif
+          <ul>  
+              @error('name')
+            <li>{{$message}}</li>
+              @enderror
         <form action="/create" method="post" class="frex">
           @csrf
           <input type="text" class="input-create" name="name">
